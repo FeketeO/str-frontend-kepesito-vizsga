@@ -1,10 +1,41 @@
 <section class="container-md">
   <form #mForm="ngForm">
+
     <div class="form-group">
       <label class="text-warning" for="title">Movie Title:</label>
       <input id="title" type="text" class="form-control"
-        required pattern="" name="title" [(ngModel)]="movie.title">
+        required pattern="" name="title" [(ngModel)]="movie.title"
+        pattern="^[A-Űa-ű\.\- ]{5,25}$">
     </div>
+
+
+  <div class="row">
+    <div class="form-group" col-6>
+      <label class="text-warning" for="year">Release year:</label>
+      <input id="year" type="text" class="form-control"
+      name="title" [(ngModel)]="movie.year"
+      pattern="^(19[0-9]{2})|(20([0-1][0-9]|2[0-1]))$" required
+        >
+
+      </div>
+
+    <div class="row">
+    <div class="form-group" col-6 >
+      <label class="text-warning" for="category">Movie Title:</label>
+      <select required type="text" id="category" [(ngModel)]="movie.category">
+        <option class="form-control" value="Choose Category" selected disabled>Choose Category</option>
+    <option value="">Drama</option>
+    <option value="">Action</option>
+    <option value="">Fantasy</option>
+
+      </select>
+    </div>
+    </div>
+  </div>
+
+
+
+
     <div class="row">
       <div class="form-group col-6">
 
@@ -15,6 +46,11 @@
     </div>
 
   </form>
-
+  <button [disabled]="mForm.invalid" class="btn btn-warning">
+    <i>Save</i>
+  </button>
+  <div>
+    <small [hidden]="mForm.valid" class="text-danger" >Fill all field to save!</small>
+  </div>
 
 </section>
