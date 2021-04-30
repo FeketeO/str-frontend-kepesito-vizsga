@@ -24,8 +24,8 @@ export class MovieListComponent implements OnInit {
   getMovies(): void {
 
 
-  this.movies = this.httpService.getList();
-    console.table(this.httpService.getList());
+  // this.movies = this.httpService.getList();
+  //   console.table(this.httpService.getList());
   }
 
   deleteMovie(id: number): any {}
